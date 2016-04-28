@@ -1,15 +1,14 @@
-from django.conf.urls import patterns, url
+# -*- coding: utf-8 -*-
 
-from eztables.demo.views import (
-    BrowserDatatablesView,
-    FormattedBrowserDatatablesView,
-    CustomBrowserDatatablesView,
-    SpecialCaseDatatablesView,
-)
+# stdlib imports
+from django.conf.urls import url
+# project imports
+from eztables.demo import views
 
-urlpatterns = patterns('',
-    url(r'^$', BrowserDatatablesView.as_view(), name='browsers'),
-    url(r'^formatted/$', FormattedBrowserDatatablesView.as_view(), name='formatted-browsers'),
-    url(r'^custom/$', CustomBrowserDatatablesView.as_view(), name='custom-browsers'),
-    url(r'^special/$', SpecialCaseDatatablesView.as_view(), name='special'),
-)
+
+urlpatterns = [
+	url(r'^$', views.BrowserDatatablesView.as_view(), name='browsers'),
+	url(r'^formatted/$', views.FormattedBrowserDatatablesView.as_view(), name='formatted-browsers'),
+	url(r'^custom/$', views.CustomBrowserDatatablesView.as_view(), name='custom-browsers'),
+	url(r'^special/$', views.SpecialCaseDatatablesView.as_view(), name='special'),
+]
